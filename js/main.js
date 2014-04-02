@@ -1,4 +1,3 @@
-/* jshint browser */
 /* global jQuery */
 (function ($) {
   'use strict';
@@ -7,23 +6,11 @@
     targetUrl = $('#url'),
     targetHits = $('#hits'),
     hitInterval = $('#interval'),
-    hitsCounter = $('#currentHits'),
-    queue = [],
-    queueInterval;
-
-  function makeCall() {
-    var url = queue.unshift();
-    if (!url) {
-      return
-    }
-
-    var img = new Image();
-    img.src = url + '?tt_tt_tt_tt=' + new Date().getTime() + queue.length;
-    $('body').append(img);
+    hitsCounter = $('#currentHits');
 
 
-    setTimeout(makeCall, interval * 1000);
-  }
+  var hits = 0,
+    timer;
 
   form.on('submit', function (ev) {
     ev.preventDefault();
@@ -32,13 +19,16 @@
       hitsToDo = parseInt(targetHits.val(), 10),
       interval = parseInt(hitInterval.val(), 10);
 
-    queueInterval = interval;
+    timer = setInterval(function () {
+      if (hits >= hitsToDo) {
+        return clearInterval(timer);
+      }
 
-    while (hitsToDo--) {
-      var src = url;
-      queue.push(src);
-    }
+      var img = new Image();
+      img.src = url + '?tt_tt_tt_tt=' + new Date().getTime() + hits;
+      $('#imgs').append(img);
 
-    makeCall();
+      hitsCounter.text(++hits);
+    }, interval * 1000);
   });
 })(jQuery);
