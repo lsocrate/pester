@@ -40,18 +40,18 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Hi, I am Pester!</h1>
-        <p>Sometimes you just need to open a url compulsively for testing purposes. I am your guys for that!</p>
+        <p>Sometimes you just need to open a url compulsively for testing purposes. I am your guy for that!</p>
         <form role="form" id="config">
           <div class="form-group">
-            <label for="exampleInputEmail1">Who's the target? Please say his full name, with "http", "https" or "whatever" in front and all the other stuff.</label>
+            <label for="exampleInputEmail1">Who's the target? Please say his full URL, with "http", "https" or "whatever" in front and all the other stuff.</label>
             <input type="url" class="form-control" id="url" placeholder="Enter target URL">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">How many times shoul I hit it?</label>
+            <label for="exampleInputPassword1">How many times should I hit it?</label>
             <input type="number" class="form-control" id="hits" placeholder="1, 42, 93, 1337? Just say a number!" min="1" step="1">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">How many seconds should I wait before hits? We don't want to overload the dude.</label>
+            <label for="exampleInputPassword1">How many seconds should I wait between hits? We don't want to overload the dude.</label>
             <input type="number" class="form-control" id="interval" placeholder="1, 42, 93, 1337? Just say how many seconds!" min="5" step="1">
           </div>
           <button type="submit" class="btn btn-default">Go!</button>
@@ -62,7 +62,7 @@
     <div class="container">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Hit count</h3>
+          <h3 class="panel-title">Counting the punches</h3>
         </div>
         <div class="panel-body">
           <p id="currentHits">0</p>
